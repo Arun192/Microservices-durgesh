@@ -10,6 +10,8 @@ import org.springframework.web.client.RestTemplate;
 @EnableEurekaClient
 public class RatingServiceApplication {
 
+    //Username = aunprajapati2481@gamil.com
+    //password = Arun@123
     public static void main(String[] args) {
         SpringApplication.run(RatingServiceApplication.class, args);
     }

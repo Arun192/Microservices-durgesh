@@ -3,7 +3,6 @@ package com.arun.user.service.controllers;
 import com.arun.user.service.services.UserService;
 import com.arun.user.service.services.entities.User;
 import io.github.resilience4j.ratelimiter.annotation.RateLimiter;
-import io.github.resilience4j.retry.annotation.Retry;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -11,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+
 
 @Slf4j
 @RestController
@@ -46,6 +46,8 @@ public class UserController {
     //Creating FallBack Method For Circuit Breaker
     public ResponseEntity<User> ratingHotelFallBack(String userId, Exception ex) {
         //log.info("Fallback is executed because service is down {}: "+ex.getMessage());
+
+        ex.printStackTrace();
 
         User user = User.builder()
                 .email("dummy@gmail.com")
